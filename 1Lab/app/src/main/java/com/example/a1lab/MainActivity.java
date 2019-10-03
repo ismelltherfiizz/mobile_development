@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView emailValidation;
     private TextView passwordValidation;
 
+    private final static int minPasswordLength = 8;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         passwordField = findViewById(R.id.login_screen_password);
         emailValidation = findViewById(R.id.login_screen_email_validation);
         passwordValidation = findViewById(R.id.login_screen_password_validation);
+
         findViewById(R.id.login_screen_sign_in_button).setOnClickListener(v -> {
-            if(!isDataInvalid()) {
+            if (!isDataInvalid()) {
                 final String email = emailField.getText().toString();
                 final String password = passwordField.getText().toString();
                 signIn(email, password);
@@ -50,44 +53,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signIn(final String email, final String password) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task ->{
-                if (task.isSuccessful()) {
-                    onSignInSuccess();
-                } else {
-                    onSignInError();
-                }
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                onSignInSuccess();
+            } else {
+                onSignInError();
+            }
 
         });
 
+    }
 
-
+    protected void showInvalid(EditText textField, TextView textValidation, String errorText) {
+        textField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        textValidation.setVisibility(View.VISIBLE);
+        textValidation.setText(errorText);
     }
 
     protected boolean isDataInvalid() {
         boolean hasError = false;
         if (isEmpty(emailField)) {
-            emailField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            emailValidation.setVisibility(View.VISIBLE);
-            emailValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(emailField, emailValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
-        }
-        else if (!isEmail(emailField)) {
-            emailField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            emailValidation.setVisibility(View.VISIBLE);
-            emailValidation.setText(getString(R.string.email_validation_text));
+        } else if (!isEmail(emailField)) {
+            showInvalid(emailField, emailValidation, getString(R.string.email_validation_text));
             hasError = true;
         }
 
         if (isEmpty(passwordField)) {
-            passwordField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            passwordValidation.setVisibility(View.VISIBLE);
-            passwordValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(passwordField, passwordValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
-        }
-        else if(!isPassword(passwordField)){
-            passwordField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            passwordValidation.setVisibility(View.VISIBLE);
-            passwordValidation.setText(getString(R.string.password_validation_text));
+        } else if (!isPassword(passwordField)) {
+            showInvalid(passwordField, passwordValidation, getString(R.string.password_validation_text));
             hasError = true;
         }
 
@@ -101,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected boolean isPassword(EditText text) {
         CharSequence password = text.getText().toString();
-        return password.length() >= 8;
+        return password.length() >= minPasswordLength;
 
     }
 
@@ -112,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onSignInError() {
-        Toast.makeText(MainActivity.this, "Incorrect email or password", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, getString(R.string.sign_in_incorrect), Toast.LENGTH_LONG).show();
     }
 
     protected void onSignInSuccess() {

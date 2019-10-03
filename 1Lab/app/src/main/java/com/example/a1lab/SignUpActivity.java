@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.regex.Matcher;
@@ -28,6 +29,10 @@ public class SignUpActivity extends MainActivity {
     private TextView passwordValidation;
     private TextView nameValidation;
     private TextView phoneValidation;
+
+    private final static Pattern isNamePattern = Pattern.compile("[A-Za-z]+");
+    private final static Pattern isPhonePattern = Pattern.compile("\\+380[0-9]{9}");
+    private final static int minNameLength = 2;
 
 
     @Override
@@ -54,6 +59,7 @@ public class SignUpActivity extends MainActivity {
                 createUser(email, password, name);
             }
         });
+
         findViewById(R.id.sign_up_link).setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -62,8 +68,6 @@ public class SignUpActivity extends MainActivity {
     }
 
     private void createUser(String email, String password, String name) {
-
-
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -71,6 +75,8 @@ public class SignUpActivity extends MainActivity {
                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                             .setDisplayName(name)
                             .build();
+                    PhoneAuthCredential phone = new PhoneAuthCredential().
+                    user.updatePhoneNumber();
                     user.updateProfile(profileUpdates).addOnCompleteListener(this, t -> {
                                 if (t.isSuccessful()) {
                                     Log.d("SignUpActivity", "User profile updated.");
@@ -88,70 +94,50 @@ public class SignUpActivity extends MainActivity {
 
     protected boolean isName(EditText text) {
         CharSequence name = text.getText().toString();
-        Pattern pattern = Pattern.compile("[A-Za-z]+");
-        Matcher matcher = pattern.matcher(name);
-        return (matcher.matches() && name.length()>=2);
-
+        Matcher matcher = isNamePattern.matcher(name);
+        return (matcher.matches() && name.length()>=minNameLength);
     }
     protected boolean isPhone(EditText text) {
         CharSequence phone = text.getText().toString();
-        Pattern pattern = Pattern.compile("\\+380[0-9]{9}");
-        Matcher matcher = pattern.matcher(phone);
+        Matcher matcher = isPhonePattern.matcher(phone);
         return matcher.matches();
-
     }
+
     @Override
     protected boolean isDataInvalid(){
         boolean hasError = false;
-
         if (isEmpty(emailField)) {
-            emailField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            emailValidation.setVisibility(View.VISIBLE);
-            emailValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(emailField, emailValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
         }
         else if (!isEmail(emailField)) {
-            emailField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            emailValidation.setVisibility(View.VISIBLE);
-            emailValidation.setText(getString(R.string.email_validation_text));
+            showInvalid(emailField, emailValidation, getString(R.string.email_validation_text));
             hasError = true;
         }
 
         if (isEmpty(passwordField)) {
-            passwordField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            passwordValidation.setVisibility(View.VISIBLE);
-            passwordValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(passwordField, passwordValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
         }
         else if(!isPassword(passwordField)){
-            passwordField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            passwordValidation.setVisibility(View.VISIBLE);
-            passwordValidation.setText(getString(R.string.password_validation_text));
+            showInvalid(passwordField, passwordValidation, getString(R.string.password_validation_text));
             hasError = true;
         }
         if (isEmpty(nameField)) {
-            nameField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            nameValidation.setVisibility(View.VISIBLE);
-            nameValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(nameField, nameValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
         }
         else if (!isName(nameField)) {
-            nameField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            nameValidation.setVisibility(View.VISIBLE);
-            nameValidation.setText(getString(R.string.name_validation_text));
+            showInvalid(nameField, nameValidation, getString(R.string.name_validation_text));
             hasError = true;
         }
 
         if (isEmpty(phoneField)) {
-            phoneField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            phoneValidation.setVisibility(View.VISIBLE);
-            phoneValidation.setText(getString(R.string.field_validation_is_empty_text));
+            showInvalid(phoneField, phoneValidation, getString(R.string.field_validation_is_empty_text));
             hasError = true;
         }
         else if(!isPhone(phoneField)){
-            phoneField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-            phoneValidation.setVisibility(View.VISIBLE);
-            phoneValidation.setText(getString(R.string.phone_validation_text));
+            showInvalid(phoneField, phoneValidation, getString(R.string.phone_validation_text));
             hasError = true;
         }
         return hasError;

@@ -9,7 +9,7 @@
     <string name="sign_up_phone_text">Type your phone</string>
     <string name="sign_in_link_text">Already have an account? Sign In!</string>
     <string name="sign_up_link_text">Don\'t have an account? Sign Up!</string>
-    <string name="welcome_text">Welcome</string>
+    <string name="welcome_text">Welcome, </string>
     <string name="welcome_sign_out_button_text">Sign out</string>
     <string name="field_validation_is_empty_text">Field is empty!</string>
     <string name="email_validation_text">Email is invalid</string>

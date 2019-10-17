@@ -37,14 +37,14 @@ public class DataValidator{
         boolean hasError = false;
 
         if (hasError = hasError || isEmpty(emailField))
-            showInvalid(emailField, emailValidation, getString(R.string.field_validation_is_empty_text));
+        {showInvalid(emailField, emailValidation, getString(R.string.field_validation_is_empty_text));}
          else if (!isEmail(emailField))
-            showInvalid(emailField, emailValidation, getString(R.string.email_validation_text));
+        {showInvalid(emailField, emailValidation, getString(R.string.email_validation_text));}
 
-        if (hasError = hasError||isEmpty(passwordField))
-            showInvalid(passwordField, passwordValidation, getString(R.string.field_validation_is_empty_text));
-        else if (hasError = hasError||!isPassword(passwordField))
-            showInvalid(passwordField, passwordValidation, getString(R.string.password_validation_text));
+        if (hasError = hasError || isEmpty(passwordField))
+        {showInvalid(passwordField, passwordValidation, getString(R.string.field_validation_is_empty_text));}
+        else if (hasError = hasError || !isPassword(passwordField))
+        {showInvalid(passwordField, passwordValidation, getString(R.string.password_validation_text));}
 
         return hasError;
     }
@@ -56,14 +56,14 @@ public class DataValidator{
         boolean hasError = isDataInvalid(emailField, passwordField, emailValidation, passwordValidation, context);
 
         if (hasError = hasError || isEmpty(emailField))
-            showInvalid(nameField, nameValidation, getString(R.string.field_validation_is_empty_text));
-        else if (!isName(nameField))
-            showInvalid(nameField, nameValidation, getString(R.string.name_validation_text));
+        {showInvalid(nameField, nameValidation, getString(R.string.field_validation_is_empty_text));}
+        else if (hasError = hasError || !isName(nameField))
+        {showInvalid(nameField, nameValidation, getString(R.string.name_validation_text));}
 
-        if (hasError = hasError||isEmpty(passwordField))
-            showInvalid(phoneField, phoneValidation, getString(R.string.field_validation_is_empty_text));
-        else if (hasError = hasError||!isPhone(phoneField))
-            showInvalid(phoneField, phoneValidation, getString(R.string.phone_validation_text));
+        if (hasError = hasError || isEmpty(passwordField))
+        {showInvalid(phoneField, phoneValidation, getString(R.string.field_validation_is_empty_text));}
+        else if (hasError = hasError || !isPhone(phoneField))
+        {showInvalid(phoneField, phoneValidation, getString(R.string.phone_validation_text));}
 
         return hasError;
     }

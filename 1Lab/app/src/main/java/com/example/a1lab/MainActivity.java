@@ -24,18 +24,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        auth = FirebaseAuth.getInstance();
-        emailField = findViewById(R.id.login_screen_email);
-        passwordField = findViewById(R.id.login_screen_password);
-        emailValidation = findViewById(R.id.login_screen_email_validation);
-        passwordValidation = findViewById(R.id.login_screen_password_validation);
-        signInButton = findViewById(R.id.login_screen_sign_in_button);
-        signInLink = findViewById(R.id.login_screen_link);
+        viewInit();
 
         signInButton.setOnClickListener(v -> {
-            if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField, emailValidation, passwordValidation, getApplicationContext())) {
+            if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField,
+                    emailValidation, passwordValidation, getApplicationContext())) {
                 final String email = emailField.getText().toString();
                 final String password = passwordField.getText().toString();
                 signIn(email, password);
@@ -46,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
+    }
+
+    private void viewInit(){
+        setContentView(R.layout.activity_main);
+
+        auth = FirebaseAuth.getInstance();
+        emailField = findViewById(R.id.login_screen_email);
+        passwordField = findViewById(R.id.login_screen_password);
+        emailValidation = findViewById(R.id.login_screen_email_validation);
+        passwordValidation = findViewById(R.id.login_screen_password_validation);
+        signInButton = findViewById(R.id.login_screen_sign_in_button);
+        signInLink = findViewById(R.id.login_screen_link);
     }
 
     private void signIn(final String email, final String password) {

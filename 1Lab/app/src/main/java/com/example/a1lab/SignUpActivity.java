@@ -28,6 +28,18 @@ public class SignUpActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewInit();
+
+        signUpButton.setOnClickListener(v -> onClick());
+
+        signUpLink.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        });
+    }
+
+    private void viewInit() {
         setContentView(R.layout.activity_sign_up);
 
         auth = FirebaseAuth.getInstance();
@@ -41,14 +53,6 @@ public class SignUpActivity extends MainActivity {
         phoneValidation = findViewById(R.id.sign_up_phone_validation);
         signUpLink = findViewById(R.id.sign_up_link);
         signUpButton = findViewById(R.id.sign_up_button);
-
-        signUpButton.setOnClickListener(v -> onClick());
-
-        signUpLink.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        });
     }
 
     private void createUser(String email, String password, String name) {

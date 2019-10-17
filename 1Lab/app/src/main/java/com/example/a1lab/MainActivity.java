@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         signInLink = findViewById(R.id.login_screen_link);
 
         signInButton.setOnClickListener(v -> {
-            if (!DataValidator.isDataInvalid(emailField, passwordField, emailValidation, passwordValidation, getApplicationContext())) {
+            if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField, emailValidation, passwordValidation, getApplicationContext())) {
                 final String email = emailField.getText().toString();
                 final String password = passwordField.getText().toString();
                 signIn(email, password);

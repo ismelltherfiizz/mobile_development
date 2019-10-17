@@ -14,96 +14,94 @@ import java.util.regex.Pattern;
 
 public class DataValidator{
 
+    private static DataValidator INSTANCE = null;
+
     private final static Pattern IS_NAME_PATTERN = Pattern.compile("[A-Za-z]+");
     private final static Pattern IS_PHONE_PATTERN = Pattern.compile("\\+380[0-9]{9}");
     private final static int MIN_NAME_LENGTH = 2;
     private final static int MIN_PASSWORD_LENGTH = 8;
     private static Context mContext;
 
-    public static boolean isDataInvalid(EditText emailField, EditText passwordField, TextView emailValidation,
+    private DataValidator() {};
+
+    public static synchronized DataValidator getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new DataValidator();
+        }
+        return (INSTANCE);
+    }
+
+    public boolean isDataInvalid(EditText emailField, EditText passwordField, TextView emailValidation,
                                  TextView passwordValidation, Context context){
         mContext = context;
         boolean hasError = false;
 
-        if (isEmpty(emailField)) {
+        if (hasError = hasError || isEmpty(emailField))
             showInvalid(emailField, emailValidation, getString(R.string.field_validation_is_empty_text));
-            hasError = true;
-        } else if (!isEmail(emailField)) {
+         else if (!isEmail(emailField))
             showInvalid(emailField, emailValidation, getString(R.string.email_validation_text));
-            hasError = true;
-        }
 
-        if (isEmpty(passwordField)) {
+        if (hasError = hasError||isEmpty(passwordField))
             showInvalid(passwordField, passwordValidation, getString(R.string.field_validation_is_empty_text));
-            hasError = true;
-        } else if (!isPassword(passwordField)) {
+        else if (hasError = hasError||!isPassword(passwordField))
             showInvalid(passwordField, passwordValidation, getString(R.string.password_validation_text));
-            hasError = true;
-        }
 
         return hasError;
     }
 
-    public static boolean isDataInvalid(EditText emailField, EditText passwordField, EditText nameField,
+    public boolean isDataInvalid(EditText emailField, EditText passwordField, EditText nameField,
                                  EditText phoneField, TextView emailValidation, TextView passwordValidation,
                                  TextView nameValidation, TextView phoneValidation, Context context) {
 
         boolean hasError = isDataInvalid(emailField, passwordField, emailValidation, passwordValidation, context);
 
-        if (isEmpty(nameField)) {
+        if (hasError = hasError || isEmpty(emailField))
             showInvalid(nameField, nameValidation, getString(R.string.field_validation_is_empty_text));
-            hasError = true;
-        }
-        else if (!isName(nameField)) {
+        else if (!isName(nameField))
             showInvalid(nameField, nameValidation, getString(R.string.name_validation_text));
-            hasError = true;
-        }
 
-        if (isEmpty(phoneField)) {
+        if (hasError = hasError||isEmpty(passwordField))
             showInvalid(phoneField, phoneValidation, getString(R.string.field_validation_is_empty_text));
-            hasError = true;
-        }
-        else if(!isPhone(phoneField)){
+        else if (hasError = hasError||!isPhone(phoneField))
             showInvalid(phoneField, phoneValidation, getString(R.string.phone_validation_text));
-            hasError = true;
-        }
+
         return hasError;
     }
 
-    private static void showInvalid(EditText textField, TextView textValidation, String errorText) {
+    private void showInvalid(EditText textField, TextView textValidation, String errorText) {
         textField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
         textValidation.setVisibility(View.VISIBLE);
         textValidation.setText(errorText);
     }
 
-    private static boolean isEmail(EditText text) {
+    private boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
-    private static boolean isPassword(EditText text) {
+    private boolean isPassword(EditText text) {
         CharSequence password = text.getText().toString();
         return password.length() >= MIN_PASSWORD_LENGTH;
     }
 
-    private static boolean isEmpty(EditText text) {
+    private boolean isEmpty(EditText text) {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
 
-    private static boolean isName(EditText text) {
+    private boolean isName(EditText text) {
         CharSequence name = text.getText().toString();
         Matcher matcher = IS_NAME_PATTERN.matcher(name);
         return (matcher.matches() && name.length() >= MIN_NAME_LENGTH);
     }
 
-    private static boolean isPhone(EditText text) {
+    private boolean isPhone(EditText text) {
         CharSequence phone = text.getText().toString();
         Matcher matcher = IS_PHONE_PATTERN.matcher(phone);
         return matcher.matches();
     }
 
-    private static String getString(int stringId){
+    private String getString(int stringId){
         return mContext.getResources().getString(stringId);
     }
 

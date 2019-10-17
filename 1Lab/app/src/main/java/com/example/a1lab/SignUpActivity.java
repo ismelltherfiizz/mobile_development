@@ -42,16 +42,7 @@ public class SignUpActivity extends MainActivity {
         signUpLink = findViewById(R.id.sign_up_link);
         signUpButton = findViewById(R.id.sign_up_button);
 
-        signUpButton.setOnClickListener(v -> {
-            if (!DataValidator.isDataInvalid(emailField, passwordField, nameField, phoneField,
-                    emailValidation, passwordValidation, nameValidation, phoneValidation, getApplicationContext())) {
-                final String email = emailField.getText().toString();
-                final String password = passwordField.getText().toString();
-                final String name = nameField.getText().toString();
-                final String phoneField = nameField.getText().toString();
-                createUser(email, password, name);
-            }
-        });
+        signUpButton.setOnClickListener(v -> onClick());
 
         signUpLink.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
@@ -81,4 +72,13 @@ public class SignUpActivity extends MainActivity {
         });
     }
 
+    private void onClick(){
+        if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField, nameField, phoneField,
+                emailValidation, passwordValidation, nameValidation, phoneValidation, getApplicationContext())) {
+            final String email = emailField.getText().toString();
+            final String password = passwordField.getText().toString();
+            final String name = nameField.getText().toString();
+            createUser(email, password, name);
+        }
+    }
 }

@@ -26,19 +26,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         viewInit();
 
-        signInButton.setOnClickListener(v -> {
-            if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField,
-                    emailValidation, passwordValidation, getApplicationContext())) {
-                final String email = emailField.getText().toString();
-                final String password = passwordField.getText().toString();
-                signIn(email, password);
-            }
-        });
+        signInButton.setOnClickListener(v -> onClick());
         signInLink.setOnClickListener(v -> {
             Intent intent = new Intent(this, SignUpActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
+    }
+
+    private void onClick(){
+        if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField,
+                emailValidation, passwordValidation, getApplicationContext())) {
+            final String email = emailField.getText().toString();
+            final String password = passwordField.getText().toString();
+            signIn(email, password);
+        }
     }
 
     private void viewInit(){

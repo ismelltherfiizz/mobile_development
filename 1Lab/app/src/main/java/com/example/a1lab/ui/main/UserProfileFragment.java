@@ -165,9 +165,7 @@ public class UserProfileFragment extends Fragment {
         emailEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                if (emailEditText.hasFocus()) {
-                    emailEditText.setText("");
-                }
+
                 if (!hasFocus) {
                     if (DataValidator.getInstance().isEmail(emailEditText)) {
                         emailLayout.setErrorEnabled(false);

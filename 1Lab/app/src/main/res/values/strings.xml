@@ -52,6 +52,13 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="add_territory">Add territory</string>
+    <string name="territory_name">Territory name</string>
+    <string name="territory_square">Territory square</string>
+    <string name="territory_detour_time">Territory detour time</string>
+    <string name="title_activity_add_territory">Add territory</string>
+    <string name="incorrect_territory_data" />
+    <string name="number_validation_text">Enter valid number</string>
 
 
 </resources>

@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +22,7 @@ public final class DataValidator{
 
     private final static Pattern IS_NAME_PATTERN = Pattern.compile("[A-Za-z]+");
     private final static Pattern IS_PHONE_PATTERN = Pattern.compile("\\+380[0-9]{9}");
+    private final static Pattern IS_NUMBER_PATTERN = Pattern.compile("[0-9]+");
     private final static int MIN_NAME_LENGTH = 2;
     private final static int MIN_PASSWORD_LENGTH = 8;
 
@@ -84,6 +88,7 @@ public final class DataValidator{
         return hasError;
     }
 
+
     private void showInvalid(EditText textField, TextView textValidation, String errorText) {
         textField.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
         textValidation.setVisibility(View.VISIBLE);
@@ -93,6 +98,12 @@ public final class DataValidator{
     public boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+    }
+
+    public boolean isNumber(EditText text) {
+        CharSequence number = text.getText().toString();
+        Matcher matcher = IS_NUMBER_PATTERN.matcher(number);
+        return matcher.matches() && number.length()>1;
     }
 
     private boolean isPassword(EditText text) {

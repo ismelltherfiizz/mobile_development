@@ -21,7 +21,6 @@ public final class DataValidator{
     private final static Pattern IS_PHONE_PATTERN = Pattern.compile("\\+380[0-9]{9}");
     private final static int MIN_NAME_LENGTH = 2;
     private final static int MIN_PASSWORD_LENGTH = 8;
-    private static DataValidator INSTANCE = new DataValidator();
 
     private Context mContext;
 

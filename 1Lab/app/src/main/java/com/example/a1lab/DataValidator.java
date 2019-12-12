@@ -90,7 +90,7 @@ public final class DataValidator{
         textValidation.setText(errorText);
     }
 
-    private boolean isEmail(EditText text) {
+    public boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
@@ -105,7 +105,7 @@ public final class DataValidator{
         return TextUtils.isEmpty(str);
     }
 
-    private boolean isName(EditText text) {
+    public boolean isName(EditText text) {
         CharSequence name = text.getText().toString();
         Matcher matcher = IS_NAME_PATTERN.matcher(name);
         return (matcher.matches() && name.length() >= MIN_NAME_LENGTH);

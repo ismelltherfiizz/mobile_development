@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/territory_details_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/territory_details_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/territory_details_detour_time">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/territory_details_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/territory_details_square"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/territory_details_name"
+        app:layout_constraintTop_toBottomOf="@id/territory_details_name" />
+
+    <TextView
+        android:id="@+id/territory_details_detour_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/territory_details_square"
+        app:layout_constraintTop_toBottomOf="@id/territory_details_square" />
+
+    <Button
+        android:id="@+id/back_to_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_list_text"
+        app:layout_constraintLeft_toLeftOf="@+id/territory_details_image"
+        app:layout_constraintRight_toRightOf="@+id/territory_details_image"
+        app:layout_constraintTop_toBottomOf="@+id/territory_details_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

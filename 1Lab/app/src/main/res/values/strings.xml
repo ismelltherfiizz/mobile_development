@@ -4,8 +4,8 @@
     <string name="password_text">Password</string>
     <string name="sign_in_button_text">Sign In</string>
     <string name="sign_up_password_text">Type your password</string>
-    <string name="sign_up_email_text">Type your email</string>
-    <string name="sign_up_name_text">Type your name</string>
+    <string name="sign_up_email_text">Your email</string>
+    <string name="sign_up_name_text">Your name</string>
     <string name="sign_up_phone_text">Type your phone</string>
     <string name="sign_in_link_text">Already have an account? Sign In!</string>
     <string name="sign_up_link_text">Don\'t have an account? Sign Up!</string>
@@ -22,8 +22,20 @@
     <string name="show_square">Square: %1$s</string>
     <string name="show_detour_time">Detour time: %1$s</string>
     <string name="no_internet_connection">NO INTERNET CONNECTION</string>
-    <string name="loading_failed">LOADING FALED</string>
+    <string name="loading_failed">LOADING FAILED</string>
     <string name="logout_text">Logout</string>
+    <string name="tab2_text">Tab #2</string>
+    <string name="user_info_updated">User info was updated</string>
+    <string name="user_picture_upload">User picture was uploaded</string>
+    <string name="title_user_profile">User profile</string>
+    <string name="title_blank">Blank</string>
+    <string name="title_territory_details">Territory details</string>
+    <string name="title_territory">Territories list</string>
+    <string name="title_territories">Territories list</string>
+    <string name="name_input_hint">Name</string>
+    <string name="email_input_hint">Email</string>
+    <string name="save_changes_button">Save changes</string>
+    <string name="back_to_list_text">Back to list</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -39,6 +51,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
 
 
 </resources>

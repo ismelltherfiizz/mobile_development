@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_territories">
+
+    <fragment
+        android:id="@+id/navigation_territories"
+        android:name="com.example.a1lab.ui.main.TerritoryFragment"
+        android:label="@string/title_territory"
+        tools:layout="@layout/fragment_territory" />
+
+    <fragment
+        android:id="@+id/navigation_blank"
+        android:name="com.example.a1lab.ui.main.BlankFragment"
+        android:label="@string/title_blank"
+        tools:layout="@layout/fragment_blank" />
+
+    <fragment
+        android:id="@+id/navigation_user_profile"
+        android:name="com.example.a1lab.ui.main.UserProfileFragment"
+        android:label="@string/title_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+
+    <fragment
+        android:id="@+id/navigation_territory_details"
+        android:name="com.example.a1lab.ui.main.TerritoryDetailsFragment"
+        android:label="@string/title_territory_details"
+        tools:layout="@layout/fragment_territory_details">
+        <argument
+            android:name="name"
+            android:defaultValue="Unknown"
+            app:argType="string" />
+        <argument
+            android:name="square"
+            android:defaultValue="1500"
+            app:argType="string" />
+        <argument
+            android:name="detour_time"
+            android:defaultValue="40"
+            app:argType="string" />
+        <argument
+            android:name="territoryPicture"
+            android:defaultValue="Unknown"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

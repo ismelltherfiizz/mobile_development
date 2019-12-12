@@ -72,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onSignInSuccess() {
-        Intent intent = new Intent(this, DataActivity.class);
+        Intent intent = new Intent(this, TabbedActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         startActivity(intent);
     }
 

@@ -1,13 +1,13 @@
 package com.example.a1lab;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     private void viewInit(){
         setContentView(R.layout.activity_main);
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onSignInSuccess() {
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, DataActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

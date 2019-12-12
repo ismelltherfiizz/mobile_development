@@ -76,7 +76,7 @@ public class SignUpActivity extends MainActivity {
         });
     }
 
-    private void onClick(){
+    private void onClick() {
         if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField, nameField, phoneField,
                 emailValidation, passwordValidation, nameValidation, phoneValidation, getApplicationContext())) {
             final String email = emailField.getText().toString();

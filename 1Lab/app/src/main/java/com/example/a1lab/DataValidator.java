@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public final class DataValidator{
 
     private static DataValidator INSTANCE;
@@ -20,11 +21,15 @@ public final class DataValidator{
     private final static Pattern IS_PHONE_PATTERN = Pattern.compile("\\+380[0-9]{9}");
     private final static int MIN_NAME_LENGTH = 2;
     private final static int MIN_PASSWORD_LENGTH = 8;
+    private static DataValidator INSTANCE = new DataValidator();
+
     private Context mContext;
 
-    private DataValidator() {};
+    private DataValidator() {
+    }
 
     public static DataValidator getInstance() {
+
         if (INSTANCE == null) {
             INSTANCE = new DataValidator();
         }
@@ -32,7 +37,7 @@ public final class DataValidator{
     }
 
     public boolean isDataInvalid(EditText emailField, EditText passwordField, TextView emailValidation,
-                                 TextView passwordValidation, Context context){
+                                 TextView passwordValidation, Context context) {
         mContext = context;
         boolean hasError = false;
 
@@ -113,7 +118,7 @@ public final class DataValidator{
         return matcher.matches();
     }
 
-    private String getString(int stringId){
+    private String getString(int stringId) {
         return mContext.getResources().getString(stringId);
     }
 

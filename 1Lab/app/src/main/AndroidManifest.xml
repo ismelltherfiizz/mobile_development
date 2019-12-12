@@ -22,9 +22,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".AddTerritoryActivity"
-            android:label="@string/title_activity_add_territory">
+            android:label="@string/title_activity_add_territory"
             android:noHistory="true"
-        </activity>
+         label="@string/title_activity_add_territory"></activity>
         <activity
             android:name=".TabbedActivity"
             android:label="@string/title_activity_tabbed" />

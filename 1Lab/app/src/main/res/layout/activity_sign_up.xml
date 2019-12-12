@@ -21,62 +21,64 @@
         android:id="@+id/sign_up_password_validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_password"
-        app:layout_constraintLeft_toLeftOf="@+id/sign_up_password" />
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_password"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_password" />
 
     <TextView
         android:id="@+id/sign_up_email_validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_email"
-        app:layout_constraintLeft_toLeftOf="@+id/sign_up_email" />
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_email"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_email" />
 
     <TextView
         android:id="@+id/sign_up_phone_validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_phone"
-        app:layout_constraintLeft_toLeftOf="@+id/sign_up_phone" />
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_phone"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_phone" />
 
     <TextView
         android:id="@+id/sign_up_name_validation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_name"
-        app:layout_constraintLeft_toLeftOf="@+id/sign_up_name" />
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_name"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_name" />
 
     <EditText
         android:id="@+id/sign_up_phone"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/sign_up_phone_text"
         android:inputType="phone"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_name_validation" />
+
     <EditText
         android:id="@+id/sign_up_email"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/sign_up_email_text"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_phone_validation" />
+
     <EditText
         android:id="@+id/sign_up_password"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/sign_up_password_text"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
@@ -89,9 +91,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_password_validation"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"        />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_password_validation" />
 
     <TextView
         android:id="@+id/sign_up_link"
@@ -99,8 +101,8 @@
         android:layout_height="wrap_content"
         android:text="@string/sign_in_link_text"
         android:textColor="@android:color/holo_blue_light"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_button"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"   />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

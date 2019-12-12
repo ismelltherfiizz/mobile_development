@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void onClick() {
+    private void onClick(){
         if (!DataValidator.getInstance().isDataInvalid(emailField, passwordField,
                 emailValidation, passwordValidation, getApplicationContext())) {
             final String email = emailField.getText().toString();
@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void viewInit() {
+
+    private void viewInit(){
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();

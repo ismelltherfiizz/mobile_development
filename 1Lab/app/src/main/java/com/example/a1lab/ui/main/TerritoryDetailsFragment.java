@@ -39,7 +39,7 @@ public class TerritoryDetailsFragment extends Fragment {
         detourTimeTextView = getActivity().findViewById(R.id.territory_details_detour_time);
 
         Picasso.with(getContext())
-                .load(getArguments().getString("territoryPicture"))
+                .load(getArguments().getString("territory_picture"))
                 .placeholder(R.drawable.fallback)
                 .error(R.drawable.fallback)
                 .into(territoryPictureView);

@@ -1,5 +1,6 @@
 package com.example.a1lab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class TabbedActivity extends AppCompatActivity {
 
@@ -27,7 +29,6 @@ public class TabbedActivity extends AppCompatActivity {
     }
 
     private void initFields() {
-
         bottomNavigationView = findViewById(R.id.nav_view);
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_territories,

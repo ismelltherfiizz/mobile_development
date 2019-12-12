@@ -1,6 +1,7 @@
 package com.example.a1lab.ui.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,12 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.a1lab.AddTerritoryActivity;
 import com.example.a1lab.AppEx;
 import com.example.a1lab.NetworkWatcher;
 import com.example.a1lab.R;
 import com.example.a1lab.Territory;
 import com.example.a1lab.TerritoryAdapter;
 import com.example.a1lab.TerritoryService;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -41,6 +44,7 @@ public class TerritoryFragment extends Fragment {
     private ConstraintLayout tabbedLayout;
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
+    private FloatingActionButton floatingActionButton;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,6 +63,11 @@ public class TerritoryFragment extends Fragment {
             initOnRefresh(parentActivity);
             registerNetworkMonitoring(parentActivity);
             getAPIData();
+            floatingActionButton.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), AddTerritoryActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            });
         }
     }
 
@@ -90,7 +99,7 @@ public class TerritoryFragment extends Fragment {
     }
 
     private void initFields(Activity activity) {
-
+        floatingActionButton = activity.findViewById(R.id.floating_action_button);
         recyclerView = activity.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));

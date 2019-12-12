@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/sign_up_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="@string/sign_up_name_text"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sign_up_password_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_password"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_password" />
+
+    <TextView
+        android:id="@+id/sign_up_email_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_email"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_email" />
+
+    <TextView
+        android:id="@+id/sign_up_phone_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_phone"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_phone" />
+
+    <TextView
+        android:id="@+id/sign_up_name_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_name"
+        app:layout_constraintLeft_toLeftOf="@+id/sign_up_name" />
+
+    <EditText
+        android:id="@+id/sign_up_phone"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="@string/sign_up_phone_text"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_name_validation" />
+    <EditText
+        android:id="@+id/sign_up_email"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="@string/sign_up_email_text"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_phone_validation" />
+    <EditText
+        android:id="@+id/sign_up_password"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="@string/sign_up_password_text"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_email_validation" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_password_validation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"        />
+
+    <TextView
+        android:id="@+id/sign_up_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_link_text"
+        android:textColor="@android:color/holo_blue_light"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"   />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

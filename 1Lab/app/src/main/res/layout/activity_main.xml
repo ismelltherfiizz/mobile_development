@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/login_screen_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:hint="@string/email_text"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_screen_email_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_email"
+        app:layout_constraintLeft_toLeftOf="@+id/login_screen_email" />
+
+    <EditText
+        android:id="@+id/login_screen_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/password_text"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_email_validation" />
+    <TextView
+        android:id="@+id/login_screen_password_validation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_password"
+        app:layout_constraintLeft_toLeftOf="@+id/login_screen_password" />
+    <Button
+        android:id="@+id/login_screen_sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:text="@string/sign_in_button_text"
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_password_validation"
+        app:layout_constraintLeft_toLeftOf="@+id/login_screen_password"
+        app:layout_constraintRight_toRightOf="@+id/login_screen_password"        />
+
+    <TextView
+        android:id="@+id/login_screen_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up_link_text"
+        android:enabled="true"
+        android:textColor="@android:color/holo_blue_light"
+        app:layout_constraintTop_toBottomOf="@+id/login_screen_sign_in_button"
+        app:layout_constraintLeft_toLeftOf="@+id/login_screen_password"
+        app:layout_constraintRight_toRightOf="@+id/login_screen_password"   />
+</androidx.constraintlayout.widget.ConstraintLayout>

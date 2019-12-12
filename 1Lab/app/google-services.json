@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1088833003612",
+    "firebase_url": "https://mobilelab-863a3.firebaseio.com",
+    "project_id": "mobilelab-863a3",
+    "storage_bucket": "mobilelab-863a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088833003612:android:cf00239c5220c0f8edc699",
+        "android_client_info": {
+          "package_name": "com.example.a1lab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088833003612-t544d42m0ud010vj59mbrndetmss9bg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWZvISP2DpcAM85v_-1x8CrL0VScHP-fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088833003612-t544d42m0ud010vj59mbrndetmss9bg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
